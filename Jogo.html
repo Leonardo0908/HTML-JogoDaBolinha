@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <canvas id="folha" width="1000" height="600"></canvas>
+        
+        <script>
+          //  window.onload = function(){
+          //      setInterval(executar, 1000 /30);
+          // }
+
+            var folhaDesenho = document.getElementById("folha");
+            var areaDesenho = folhaDesenho.getContext("2d");
+
+           // function executar(){
+                areaDesenho.fillStyle = "#286047";
+                areaDesenho.fillRect(0, 0,1000, 600);
+               
+                areaDesenho.fillStyle = "ffffff";
+          //  }
+        </script>
+    </body>
+</html>
