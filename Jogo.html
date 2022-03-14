@@ -4,19 +4,27 @@
         <canvas id="folha" width="1000" height="600"></canvas>
         
         <script>
-          //  window.onload = function(){
-          //      setInterval(executar, 1000 /30);
-          // }
-
+          
             var folhaDesenho = document.getElementById("folha");
             var areaDesenho = folhaDesenho.getContext("2d");
 
-           // function executar(){
+                //CAMPO
                 areaDesenho.fillStyle = "#286047";
                 areaDesenho.fillRect(0, 0,1000, 600);
-               
-                areaDesenho.fillStyle = "ffffff";
-          //  }
+                
+                //LINHA CAMPO
+                areaDesenho.fillStyle = "#ffffff";
+                areaDesenho.fillRect(497.5, 0, 5, 600);
+                
+                //JOGADOR 1
+                areaDesenho.fillRect(0, 30, 5, 70);
+
+                //JOGADOR 2
+                areaDesenho.fillRect(995, 300, 5, 70);
+                
+                 //BOLA
+                 areaDesenho.fillRect(30, 30, 10, 10);
+
         </script>
     </body>
 </html>
