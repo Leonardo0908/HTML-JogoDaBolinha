@@ -4,27 +4,57 @@
         <canvas id="folha" width="1000" height="600"></canvas>
         
         <script>
-          
-            var folhaDesenho = document.getElementById("folha");
-            var areaDesenho = folhaDesenho.getContext("2d");
+            window.onload = function(){
+              setInterval(executar, 1000/ 30);
+            }
 
-                //CAMPO
-                areaDesenho.fillStyle = "#286047";
-                areaDesenho.fillRect(0, 0,1000, 600);
-                
-                //LINHA CAMPO
-                areaDesenho.fillStyle = "#ffffff";
-                areaDesenho.fillRect(497.5, 0, 5, 600);
-                
-                //JOGADOR 1
-                areaDesenho.fillRect(0, 30, 5, 70);
+            var posicaoBolaX = posicaoBolaY = 10;
 
-                //JOGADOR 2
-                areaDesenho.fillRect(995, 300, 5, 70);
-                
-                 //BOLA
-                 areaDesenho.fillRect(30, 30, 10, 10);
+           var velocidadeBolaPosicaoX = velocidadeBolaPosicaoy = 1;
 
+            function executar() {
+        
+              var folhaDesenho = document.getElementById("folha");
+              var areaDesenho = folhaDesenho.getContext("2d");
+
+              var alturaCampo = 600;
+              var larguraCampo = 1000;
+              var espessuraRede = 5;
+              
+              var alturaRaquete = 50;
+              var diametroBola = 10;
+
+                  //CAMPO
+                  areaDesenho.fillStyle = "#286047";
+                  areaDesenho.fillRect(0, 0,larguraCampo, alturaCampo);
+                  
+                  //LINHA CAMPO
+                  areaDesenho.fillStyle = "#ffffff";
+                  areaDesenho.fillRect(larguraCampo/2 - espessuraRede/2, 0, espessuraRede, alturaCampo);
+                  
+                  //JOGADOR 1
+                  areaDesenho.fillRect(0, 30, espessuraRede, alturaRaquete);
+
+                  //JOGADOR 2
+                  areaDesenho.fillRect(larguraCampo - espessuraRede, 300, espessuraRede, alturaRaquete);
+                  
+                  //BOLA 
+                  areaDesenho.fillRect(posicaoBolaX - diametroBola / 2,posicaoBolaY - diametroBola / 2 ,diametroBola,diametroBola);
+
+
+                  posicaoBolaX = posicaoBolaX + 5;
+				          posicaoBolaY = posicaoBolaY + 5;
+            
+                  
+                  //VERIFICA LATERAL SUPERIOR
+                  if(posicaoBolaY < 0 && velocidadeBolaPosicaoy < 0) {
+                    velocidadeBolaPosicaoy = -velocidadeBolaPosicaoy;
+                  }
+                  //VERIFICA LATERAL INFERIOR
+                  if(posicaoBolaX > alturaCampo && velocidadeBolaPosicaox > 0) {
+                    velocidadeBolaPosicaoy = -velocidadeBolaPosicaoy;
+                  }
+                }
         </script>
     </body>
 </html>
