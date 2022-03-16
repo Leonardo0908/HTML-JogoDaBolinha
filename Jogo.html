@@ -8,9 +8,9 @@
               setInterval(executar, 1000/ 30);
             }
 
-            var posicaoBolaX = posicaoBolaY = 10;
+            var posicaoBolaX = (posicaoBolaY = 10);
 
-           var velocidadeBolaPosicaoX = velocidadeBolaPosicaoy = 1;
+           var velocidadeBolaPosicaoX = (velocidadeBolaPosicaoY = 5);
 
             function executar() {
         
@@ -41,18 +41,16 @@
                   //BOLA 
                   areaDesenho.fillRect(posicaoBolaX - diametroBola / 2,posicaoBolaY - diametroBola / 2 ,diametroBola,diametroBola);
 
-
-                  posicaoBolaX = posicaoBolaX + 5;
-				          posicaoBolaY = posicaoBolaY + 5;
+                  posicaoBolaX = posicaoBolaX + velocidadeBolaPosicaoX;
+				          posicaoBolaY = posicaoBolaY + velocidadeBolaPosicaoY;
             
-                  
                   //VERIFICA LATERAL SUPERIOR
-                  if(posicaoBolaY < 0 && velocidadeBolaPosicaoy < 0) {
-                    velocidadeBolaPosicaoy = -velocidadeBolaPosicaoy;
+                  if(posicaoBolaY < 0 && velocidadeBolaPosicaoY < 0 ) {
+                    velocidadeBolaPosicaoY = -velocidadeBolaPosicaoY;
                   }
                   //VERIFICA LATERAL INFERIOR
-                  if(posicaoBolaX > alturaCampo && velocidadeBolaPosicaox > 0) {
-                    velocidadeBolaPosicaoy = -velocidadeBolaPosicaoy;
+                  if(posicaoBolaY > alturaCampo && velocidadeBolaPosicaoX > 0) {
+                    velocidadeBolaPosicaoY = -velocidadeBolaPosicaoY;
                   }
                 }
         </script>
